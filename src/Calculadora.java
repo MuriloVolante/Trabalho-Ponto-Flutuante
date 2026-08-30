@@ -13,14 +13,19 @@ public class Calculadora {
                 "((1 + 2) * (3 + 4)) / 7"
         };
 
-        for (String expr : expressoes) {
+        for (int i = 0; i < expressoes.length; i++) {
+            String expr = expressoes[i];
             List<String> tokens = tokenizar(expr);
             List<String> rpn = paraRPN(tokens);
             double resultado = calcularRPN(rpn);
 
+            System.out.println("=========================");
+            System.out.println("Expressão " + (i + 1) + ": " + expr);
+            System.out.println("--------------------------");
             System.out.println("Infixa: " + expr);
             System.out.println("RPN: " + String.join(" ", rpn));
             System.out.println("Resultado: " + resultado);
+            System.out.println("=========================");
             System.out.println();
         }
     }
